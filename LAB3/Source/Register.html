@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <style type="text/css">
+        body{
+            background-image: url("hey.jpg");
+            background-size: cover;
+        }
+        .Register{
+            width: 300px;
+            height: 550px;
+            background-color: rgba(0,0,0,0.3);
+            margin:0 auto;
+            margin-top: 65px;
+            padding-left: 20px;
+            padding-top: 15px;
+            border-radius: 20px;
+            -moz-border-radius: 20px;
+            -webkit-border-radius: 20px;
+            -o-border-radius:20px;
+            color: white;
+        }
+        .Register[type="text"]{
+            width:230px;
+            height:50px;
+        }
+        .Register[type="email"]{
+            width:230px;
+            height:50px;
+        }
+        .Register[type="number"] {
+            width: 230px;
+            height: 50px;
+        }
+        .Register[type="password"] {
+            width: 230px;
+            height: 50px;
+        }
+    </style>
+</head>
+<script>
+    function validate1() {
+        if (localStorage)
+        {
+            form = document.forms["RegisterForm"];
+            var a = form["username"].value;
+            var d = form["password"].value;
+            localStorage.setItem('Username', a);
+            localStorage.setItem('Password', d);
+            return true;
+        }
+    }
+</script>
+<body>
+<div class="Register">
+    <form class="form" name="RegisterForm" method="post">
+        <p>Please Enter your details</p>
+        <p>Name:</p>
+        <input type="text" name="name1" placeholder="Name1"><br>
+        <p>Email ID:</p>
+        <input type="email" name="email" placeholder="Email ID"><br>
+        <p>Phone Number</p>
+        <input type="number" name="number" placeholder="Phone Number"><br>
+        <p>Username:</p>
+        <input type="text" name="username" placeholder="Username"><br>
+        <p>Password:</p>
+        <input type="Password" name="password" placeholder="Password"><br>
+        <p>Confirm Password</p>
+        <input type="password" name="confirm password" placeholder="Confirm Password"><br><br>
+        <a href="Login.html"><input type="button" value="Register" onclick="validate1()"></a><br>
+    </form>
+</div>
+
+</body>
+</html>

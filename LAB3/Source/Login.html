@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
+    <link href="Login.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+
+    <![endif]-->
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/api:client.js"></script>
+    <script src = "//connect.facebook.net/en_US/sdk.js"></script>
+    <!--<script src="JS/home.js"></script>-->
+    <style>
+        .reg{
+            background-image: url("hey.jpg");
+            background-size: cover;
+        }
+    </style>
+
+
+    <script>
+        var googleUser = {};
+        var startApp = function () {
+            gapi.load('auth2', function () {
+                // Retrieve the singleton for the GoogleAuth library and set up the client.
+                auth2 = gapi.auth2.init({
+                    client_id: '1050053025910-dvjd6pkgoda8dpm8f1j3933dgjmf6lf1.apps.googleusercontent.com',
+                    cookiepolicy: 'single_host_origin',
+                    // Request scopes in addition to 'profile' and 'email'
+                    //scope: 'additional_scope'
+                });
+                attachSignin(document.getElementById('customBtn'));
+            });
+        };
+        function attachSignin(element) {
+            console.log(element.id);
+            auth2.attachClickHandler(element, {},
+                function (googleUser) {
+                    document.getElementById('name').innerText = "Signed in: " +
+                        googleUser.getBasicProfile().getName();
+                }, function (error) {
+                    alert(JSON.stringify(error, undefined, 2));
+                });
+            window.location.href = "Home.html";
+        };
+    </script>
+
+    <script>
+        function redirect() {
+            validate();
+            //window.location.assign("Home.html");
+
+        }
+        function validate()
+        {
+            if(localStorage)
+            {
+                form = document.forms["LoginForm"];
+                var user= form["username"].value;
+                var local_user = localStorage.getItem("Username");
+                var local_pass    = localStorage.getItem("Password");
+                var pass    = form["password"].value;
+                if (user===local_user && pass===local_pass)
+                {
+                    alert("Successfully Logged In!");
+                    window.location.assign("Home.html");
+                    return true;
+                } else
+                {
+                    alert("Login Failed!..Please Login again!");
+                    window.location.assign("Login.html");
+                }
+            }
+        }
+    </script>
+
+</head>
+<body class="reg">
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '617702668617972',
+            xfbml      : true,
+            version    : 'v2.10'
+        });
+        FB.getLoginStatus(function(response) {
+            if (response.status === 'connected') {
+                // Logged into your app and Facebook.
+                // testAPI();
+            } else if (response.status === 'not_authorized') {
+                // The person is logged into Facebook, but not your app.
+                document.getElementById('status').innerHTML = 'Please log ' +
+                    'into this app.';
+            } else {
+                // The person is not logged into Facebook, so we're not sure if
+                // they are logged into this app or not.
+                document.getElementById('status').innerHTML = 'Please log ' +
+                    'in.';
+            }
+        });
+    };
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    function login(){
+        FB.login(function(response) {
+            if (response.status === 'connected') {
+                // Logged into your app and Facebook.
+                // testAPI();
+                getInfo();
+            } else if (response.status === 'not_authorized') {
+                // The person is logged into Facebook, but not your app.
+                document.getElementById('status').innerHTML = 'Please log ' +
+                    'into this app.';
+            } else {
+                // The person is not logged into Facebook, so we're not sure if
+                // they are logged into this app or not.
+                document.getElementById('status').innerHTML = 'Please log ' +
+                    'into Facebook.';
+            }
+        }, {scope: 'email'});
+    }
+    function getInfo() {
+        FB.api('/me', function (response) {
+                console.log(response.name.toString());
+                var str = "<b>Name</b> : " + response.name + "<br>";
+                str += "<b>Link: </b>" + response.link + "<br>";
+                str += "<b>Username:</b> " + response.username + "<br>";
+                str += "<b>id: </b>" + response.id + "<br>";
+                str += "<b>Email:</b> " + response.email + "<br>";
+                str += "<input type='button' value='Get Photo' onclick='getPhoto();'/>";
+                str += "<input type='button' value='Logout' onclick='Logout();'/>";
+                document.getElementById('status').innerHTML = "Connected";
+                var name = response.name;
+                console.log(name);
+                localStorage.setItem("Name", name);
+            }
+        );
+        //document.getElementById('home').innerHTML =  document.getElementById('status').value;
+        window.location.href = 'Home.html';
+    }
+    function navigate() {
+        var str = document.getElementById('status').value;
+        document.getElementById('Home').innerHTML = str.toString();
+        window.location.href = 'Home.html';
+    }
+    function Logout() {
+        FB.logout(function () {
+            document.location.reload();
+        });
+    }
+</script>
+
+<!-- Top content -->
+<div class="top-content">
+
+    <div class="inner-bg">
+        <div class="container">
+            <div class="row">/
+                <div class="col-sm-6 col-sm-offset-3 form-box">
+                    <div class="form-top">
+                        <div class="form-top-left">
+                            <center><h3>Welcome! Please Sign In!</h3></center>
+                            <br><br>
+                        </div>
+                    </div>
+                    <div class="Login">
+
+                        <form class="form" name="LoginForm" method="post">
+
+                            <p>Username:</p>
+                            <input type="text" name="username" placeholder="Username"><br>
+                            <p>Password:</p>
+                            <input type="Password" name="password" placeholder="Password"><br><br><br><br>
+                            <input type="button" value="Login" onclick="redirect()">
+                            <a href="Register.html"><input type="button" action="Register.html" value="Register"></a>
+                        </form>
+                    </div>
+                   <!-- <div ng-app ng-controller="LoginController">
+
+                        <div class="login"></div><br/>
+
+                        <div class="input">
+                            Username: <input ng-model="user.Username"></input>
+                            <br/><br/>
+                            Password: <input ng-model="user.Password" type="password"></input>
+                            <br/><br/>
+                            <br/><br/>
+                        </div>
+
+                    </div>-->
+
+                            <br>
+                            <br>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 social-login">
+                    <center><h3>Please login with:</h3></center>
+
+                    <div class="social-login-buttons">
+                        <div id="status">
+                        </div>
+                        <center><a class="btn btn-primary social-login-btn social-facebook" href="#" onclick="login()">
+                            <i class="fa fa-facebook"></i>
+                        </a></center>
+                        <br>
+
+
+                        <center><a id="customBtn" class="btn btn-danger social-login-btn social-google" href="#" onclick="startApp()">
+                            <i class="fa fa-google-plus"></i>
+                        </a></center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
