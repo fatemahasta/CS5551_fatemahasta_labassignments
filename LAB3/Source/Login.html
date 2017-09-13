@@ -28,7 +28,7 @@
     <!--<script src="JS/home.js"></script>-->
     <style>
         .reg{
-            background-image: url("hey.jpg");
+            background-image: url("new.jpg");
             background-size: cover;
         }
     </style>
@@ -40,7 +40,7 @@
             gapi.load('auth2', function () {
                 // Retrieve the singleton for the GoogleAuth library and set up the client.
                 auth2 = gapi.auth2.init({
-                    client_id: '1050053025910-dvjd6pkgoda8dpm8f1j3933dgjmf6lf1.apps.googleusercontent.com',
+                    client_id: '894766173378-2gi89m7cc2vcc9ni8hr6vm11dl7mfple.apps.googleusercontent.com',
                     cookiepolicy: 'single_host_origin',
                     // Request scopes in addition to 'profile' and 'email'
                     //scope: 'additional_scope'
@@ -57,14 +57,15 @@
                 }, function (error) {
                     alert(JSON.stringify(error, undefined, 2));
                 });
-            window.location.href = "Home.html";
+            window.location.href = 'Home.html';
         };
     </script>
+
 
     <script>
         function redirect() {
             validate();
-            //window.location.assign("Home.html");
+            window.location.assign("Home.html");
 
         }
         function validate()
@@ -187,56 +188,45 @@
                     <div class="Login">
 
                         <form class="form" name="LoginForm" method="post">
-
                             <p>Username:</p>
-                            <input type="text" name="username" placeholder="Username"><br>
+                            <input type="text" name="username" placeholder="Username" size="80"><br>
+                            <br>
                             <p>Password:</p>
-                            <input type="Password" name="password" placeholder="Password"><br><br><br><br>
+                            <input type="Password" name="password" placeholder="Password" size="80"><br><br><br><br>
                             <input type="button" value="Login" onclick="redirect()">
                             <a href="Register.html"><input type="button" action="Register.html" value="Register"></a>
-                        </form>
-                    </div>
-                   <!-- <div ng-app ng-controller="LoginController">
-
-                        <div class="login"></div><br/>
-
-                        <div class="input">
-                            Username: <input ng-model="user.Username"></input>
-                            <br/><br/>
-                            Password: <input ng-model="user.Password" type="password"></input>
-                            <br/><br/>
-                            <br/><br/>
-                        </div>
-
-                    </div>-->
-
-                            <br>
-                            <br>
 
                         </form>
+
                     </div>
+
+                    <br>
+                    <br>
+
+                    </form>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-6 col-sm-offset-3 social-login">
-                    <center><h3>Please login with:</h3></center>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 social-login">
+                <center><h3>Please login with:</h3></center>
 
-                    <div class="social-login-buttons">
-                        <div id="status">
-                        </div>
-                        <center><a class="btn btn-primary social-login-btn social-facebook" href="#" onclick="login()">
-                            <i class="fa fa-facebook"></i>
-                        </a></center>
-                        <br>
-
-
-                        <center><a id="customBtn" class="btn btn-danger social-login-btn social-google" href="#" onclick="startApp()">
-                            <i class="fa fa-google-plus"></i>
-                        </a></center>
+                <div class="social-login-buttons">
+                    <div id="status">
                     </div>
+                    <center><a class="btn btn-primary social-login-btn social-facebook" href="#" onclick="login()">
+                        <i class="fa fa-facebook"></i>
+                    </a></center>
+                    <br>
+
+
+                    <center><a id="customBtn" class="btn btn-danger social-login-btn social-google" href="#" onclick="startApp()">
+                        <i class="fa fa-google-plus"></i>
+                    </a></center>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 </body>
