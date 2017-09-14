@@ -65,9 +65,9 @@
     <script>
         function redirect() {
             validate();
-            window.location.assign("Home.html");
-
+            //window.location.assign("Home.html");
         }
+
         function validate()
         {
             if(localStorage)
@@ -85,7 +85,6 @@
                 } else
                 {
                     alert("Login Failed!..Please Login again!");
-                    window.location.assign("Login.html");
                 }
             }
         }
