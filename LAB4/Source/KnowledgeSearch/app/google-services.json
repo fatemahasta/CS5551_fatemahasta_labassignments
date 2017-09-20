@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "151225203762",
+    "project_id": "firebase-knowledgesearch"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:151225203762:android:e4a05ae4a54d7b8a",
+        "android_client_info": {
+          "package_name": "com.example.fatema.knowledgesearch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "151225203762-6n7iusck9taftd3j25jedsolor25371s.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "151225203762-4p6u4hdotes1nl84bk1okpimpe1m0u8s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fatema.knowledgesearch",
+            "certificate_hash": "4beb141c85a236f1cdbef98a327149540bbb8586"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3x0fgZBZ9MPOSRYxHDGDvkpyLOTi5JDc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
