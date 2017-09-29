@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.fatema.searchitems.searchitem"
+    tools:showIn="@layout/activity_searchitem">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="800dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/back"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Welcome to Hunt US!"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Please select an image to upload or take a photo!"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp"
+        android:text="CAMERA"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_marginBottom="75dp" />
+
+    <Button
+        android:id="@+id/upload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/camera"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp"
+        android:layout_toEndOf="@+id/camera"
+        android:layout_toRightOf="@+id/camera"
+        android:text="UPLOAD" />
+
+    <ImageView
+        android:id="@+id/userimage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/camera"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="25dp"
+        android:visibility="invisible"
+        app:srcCompat="@android:drawable/ic_menu_report_image" />
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="11dp"
+        android:onClick="identify"
+        android:text="Identify Item"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/productName"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_above="@+id/userimage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        android:background="#FFA500"
+        android:paddingTop="5dp"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:visibility="invisible" />
+
+
+
+</RelativeLayout>
+
