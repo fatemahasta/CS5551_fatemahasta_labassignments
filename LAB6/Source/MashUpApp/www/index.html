@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <title></title>
+<script src="lib/angular/angular.js"></script>
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+      <script src="http://maps.google.com/maps/api/js?key=AIzaSyCqxTAypvfVrrm6gTn9T6625oCA9mNWVs0"></script>    
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+      <script src="cordova.js">/script>
+    <script src="lib/handleBars/handlebars-v4.0.5.js"></script> 
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+      <link rel="manifest" href="manifest.json">
+    
+    <style type="text/css">
+      .platform-ios .manual-ios-statusbar-padding{
+        padding-top:20px;
+      }
+      .manual-remove-top-padding{
+        padding-top:0px; 
+      }
+      .manual-remove-top-padding .scroll{
+        padding-top:0px !important;
+      }
+      ion-list.manual-list-fullwidth div.list, .list.card.manual-card-fullwidth {
+        margin-left:-10px;
+        margin-right:-10px;
+      }
+      ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidth > .item {
+        border-radius:0px;
+        border-left:0px;
+        border-right: 0px;
+      }
+    </style>
+      
+
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/routes.js"></script>
+    
+     
+    <script src="js/directives.js"></script>
+     
+    <script src="js/services.js"></script>
+      
+    
+    <link rel="stylesheet" href="css/style.css">
+    
+
+    <!-- Only required for Tab projects w/ pages in multiple tabs 
+    <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
+    -->
+
+  </head>
+  <body ng-app="app" animation="slide-left-right-ios7">
+  <div>
+       <div>
+        <ion-nav-bar class="bar-stable">
+            <ion-nav-back-button></ion-nav-back-button>
+        </ion-nav-bar>
+        <ion-nav-view></ion-nav-view>
+    </div>
+</div>
+       
+      
+  </body>
+</html>
