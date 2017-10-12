@@ -1,0 +1,22 @@
+<ion-view id="homePage" style="background-color:#AFC9AF;" >
+    <ion-content style="background: url(img/bday.jpg) no-repeat center;background-size:cover;" padding="true" class="has-header" ng-controller="homeCtrl">
+        <br>
+       <center> <p>Search for events at a particular place!</p></center>
+        <br>
+        <form id="searchForm" class="list">
+             <div id="searchApp-bar3" class="button-bar">
+             <label class="item item-input" >
+                <i class="icon ion-search placeholder-icon"></i>
+                <input ng-model="data.location" type="search" placeholder="Enter a location" name="txtLocation" style="width: 900px; height: 20px;border-radius:38px 38px 38px 38px;">
+             </label>
+              <div class="spacer" style="width: 36px; height: 36px;"></div>         
+             <button id="searchApp-button11"  ng-click="search()" style="border-radius:38px 38px 38px 38px;">SEARCH</button>
+             </div> 
+        </form>
+        <div class="spacer" style="width: 300px; height: 18px;"></div>        
+        <div id="map" data-tap-disabled="true"></div>
+        <div id="show-list">
+            
+        </div>
+    </ion-content>
+</ion-view>

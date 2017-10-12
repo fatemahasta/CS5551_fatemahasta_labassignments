@@ -1,0 +1,36 @@
+<ion-view id="registerPage">
+    <ion-content padding="true" style="background: url(img/bday.jpg) no-repeat center;background-size:cover;" class="has-header">
+        <div class="spacer" style="width: 300px; height: 35px;"></div>
+        
+        <div class="omb_authTitle" style="color:black"><center>PLEASE REGISTER.</center></div> 
+        <div class="spacer" style="width: 300px; height: 36px;"></div>
+        <div class="msg" style="color:white;">{{status}}</div> 
+         <div class="spacer" style="width: 300px; height: 36px;"></div>
+        
+        <form id="signup-form9" class="list">
+            <ion-list id="signup-list1">
+                <label class="item item-input" id="signup-input13">
+                    <input type="text" placeholder="Name" ng-model="registerData.name">
+                </label>
+                <div class="spacer" style="width: 300px; height: 5px;"></div>
+                <label class="item item-input" id="signup-input14" name="txtUsername">
+                    <input type="email" placeholder="Username(Email ID)" ng-model="registerData.un">
+                </label>
+                <div class="spacer" style="width: 300px; height: 5px;"></div>
+                <label class="item item-input" id="signup-input15" name="txtPwd" >
+                    <input type="password" placeholder="Password" ng-model="registerData.pwd">
+                </label>
+                <div class="spacer" style="width: 300px; height: 5px;"></div>
+                <label class="item item-input" id="signup-input15" name="txtConfirmPwd" >
+                    <input type="password" placeholder="Confirm Password">
+                </label>
+                <div class="spacer" style="width: 300px; height: 5px;"></div>                
+            </ion-list>
+            <div class="spacer" style="width: 300px; height: 43px;"></div>
+            <div id="signUp-button-bar3" class="button-bar">
+        <button id="signup-button13" class="hey" type="submit" style="border-radius:38px 38px 38px 38px;"ng-click="register()"><center>Register</center></button>
+        </div>         
+            
+        </form>
+    </ion-content>
+</ion-view>
