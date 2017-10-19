@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <style type="text/css">
+        body{
+	
+            background-image: url("https://i.pinimg.com/originals/1a/9f/8a/1a9f8a7d5605acdb168786a2c27ede0c.jpg");
+            background-size: cover;
+	    
+        }
+        .Login{
+            width: 300px;
+            height: 400px;
+            background-color: rgba(0,0,0,0.3);
+            margin:0 auto;
+            margin-top: 85px;
+            padding-left: 20px;
+            padding-top: 15px;
+            border-radius: 20px;
+            -moz-border-radius: 20px;
+            -webkit-border-radius: 20px;
+            -o-border-radius:20px;
+            color: white;
+        }
+        .divider{
+            width:5px;
+            height:auto;
+            display:inline-block;
+        }
+        .Login a{
+            margin: 11px;
+        }
+        .Login[type="text"]{
+            width:500px;
+            height:50px;
+        }
+        .Login[type="passport"]{
+            width:500px;
+            height:50px;
+        }
+    </style>
+    <script>
+        function redirect() {
+            validate();
+        }
+        function validate()
+        {
+            if(localStorage)
+            {
+                form = document.forms["LoginForm"];
+                var user= form["username"].value;
+                var local_user = localStorage.getItem("Username");
+                var local_pass    = localStorage.getItem("Password");
+                var pass = form["password"].value;
+                if (user===local_user && pass===local_pass)
+                {
+                    alert("Successfully Logged In!");
+                    window.location.assign("Index.html");
+                    return true;
+                } else
+                {
+                    alert("Login Failed!..Please Login again!");
+                    window.location.assign("Login.html");
+                }
+            }
+        }
+    </script>
+
+</head>
+<body background="back.jpg">
+
+<div class="Login">
+
+    <form class="form" name="LoginForm" method="post">
+        <p>Welcome! Please enter your details to log in.</p>
+        <p>Username:</p>
+        <input type="text" name="username" placeholder="Username"><br>
+        <p>Password:</p>
+        <input type="Password" name="password" placeholder="Password"><br><br><br><br>
+        <input type="button" value="Login" onclick="redirect()">
+        <a href="Register.html"><input type="button" action="Register.html" value="Register"></a>
+    </form>
+</div>
+</body>
+</html>

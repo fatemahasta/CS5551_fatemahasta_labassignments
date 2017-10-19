@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Identify ME!</title>
+    <script src="https://npmcdn.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="classify.js"></script>
+    <script src="classify.js"> </script>
+    <script>
+        function getsent() {
+
+            var url = "https://api.uclassify.com/v1/uclassify/genderanalyzer_v5/classify/?readKey=N9aGaUqUHetx&text=" + hello;
+        }
+    </script>
+    <style>
+        #imgurl {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: none;
+            background-color: lightgray;
+        }
+        .button {
+            background-color: darkblue;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .button4 {border-radius: 12px;}
+        .hello
+        {
+            color: white;
+        }
+    </style>
+
+</head>
+<body background="https://i.pinimg.com/originals/1a/9f/8a/1a9f8a7d5605acdb168786a2c27ede0c.jpg" style="background-color: white">
+<center>
+<div class="center">
+    <h1><label class="hello">Identify ME!</label></h1>
+    <br>
+    <label class="hello">Please enter the link of the image you want to retrieve tags for!</label>
+    <input type="text" id="imgurl" placeholder="Link" width="100" height="200" size="70">
+    <button class="button button3" onclick=run(document.getElementById('imgurl').value) >TAGS</button>
+</div>
+<br />
+<table align="center"  width="1200" height="200" border="0" cellpadding="5">
+    <tr>
+        <td align="center" valign="center">
+            <div id="data_bef_img"></div>
+            <br />
+
+        </td>
+        <td align="center" valign="center">
+            <div id="check"></div>
+            <br />
+        </td>
+    </tr>
+    <tr>
+        <td align="center" valign="center">
+            <h3><b><div class="hello" id="data_for_img"></div></b></h3>
+            <br />
+        </td>
+        <td align="center" valign="center">
+            <div class="hello" id="tags"></div>
+            <br />
+        </td>
+    </tr>
+</table>
+<div id="demo" align="center">
+</div>
+</center>
+</body>
+</html>

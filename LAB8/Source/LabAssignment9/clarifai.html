@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #imgurl {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: none;
+            background-color: #3366ff;
+            color: white;
+        }
+    </style>
+    <style>
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .button1 {border-radius: 2px;}
+        .button2 {border-radius: 4px;}
+        .button3 {border-radius: 8px;}
+        .button4 {border-radius: 12px;}
+        .button5 {border-radius: 50%;}
+        .hello{
+            color: white;
+        }
+    </style>
+    <title>My first API</title>
+    <script src="https://npmcdn.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="classify.js"></script>
+    <script src="classify.js"> </script>
+    <script>
+        $(document).ready(function(){
+            $.getJSON("https://api.uclassify.com/v1/uclassify/topics/Classify?readkey=ALx6B0U2HsG8&text="+hello,function(result){
+                document.write(result.Arts);
+            });
+        });
+    </script>
+
+</head>
+<body background="https://i.pinimg.com/originals/1a/9f/8a/1a9f8a7d5605acdb168786a2c27ede0c.jpg">
+<div class="center">
+    <input type="text" id="imgurl" placeholder="Image URL" width="100" height="200" size="70">
+    <button class="button button4" onclick=run(document.getElementById('imgurl').value) ></button>
+</div>
+
+<br />
+<table align="center"  width="1200" height="200" border="0" cellpadding="5">
+    <tr>
+
+        <td align="center" valign="center">
+            <div id="data_bef_img"></div>
+            <br />
+
+        </td>
+        <td align="center" valign="center">
+            <div id="check"></div>
+            <br />
+        </td>
+
+
+
+    </tr>
+    <tr>
+        <td align="center" valign="center">
+            <h3><b><div class="hello" id="data_for_img"></div></b></h3>
+            <br />
+
+        </td>
+        <td align="center" valign="center">
+            <div class="hello" id="tags"></div>
+            <br />
+        </td>
+
+
+
+
+
+    </tr>
+</table>
+<div id="output"></div>
+</body>
+</html>
