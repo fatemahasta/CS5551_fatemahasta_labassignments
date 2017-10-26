@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Mashup Application</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+  <style>
+    .mashup-body {
+      background-image: url("new.jpg");
+    }
+
+    .outerContainer {
+      border-style: solid;
+      border-radius: 5px;
+      border-color:black;
+      margin: 10px;
+    }
+    .savedRecords {
+      box-shadow: 0 4px 8px 0 rgba(15, 1, 1, 0.86);
+      transition: 0.3s;
+      border-radius: 5px;
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      padding-right: 5px;
+      background-color: darkgray;
+    }
+    .savedRecords.container {
+      padding: 0px 16px;
+    }
+    .savedRecords.description {
+      width: 90px;
+      overflow-wrap: break-word;
+    }
+
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(15, 1, 1, 0.86);
+      transition: 0.3s;
+      width: 482px;
+      border-radius: 5px;
+      margin-left: 30px;
+      margin-top: 20px;
+      padding-bottom: 5px;
+      background-color: darkgray;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1);
+    }
+
+    img {
+      border-radius: 5px 5px 0 0;
+    }
+
+    .container {
+      padding: 2px 16px;
+    }
+
+    .videoDescription {
+      width: 470px;
+      overflow-wrap: break-word;
+    }
+
+    .logoutButton {
+      margin-right: 5px;
+      /*margin-top: -80px;*/
+    }
+
+    .bbbbbb {
+      margin-top: -15px;
+      padding-bottom: 15px;
+    }
+  </style>
+
+  <script type="text/javascript" src="http://code.angularjs.org/1.1.1/angular.js"></script>
+  <script type="text/javascript" src="http://code.angularjs.org/1.1.1/angular-resource.js"></script>
+  <script type="text/javascript" src="http://code.angularjs.org/1.1.1/angular-sanitize.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+
+</head>
+
+<body class="mashup-body">
+  <div class="container text-center">
+    <h2><b>Search Top 10 Videos</b></h2>
+  </div>
+
+  <div role="form">
+    <div class='searchBarElement' ng-app="demoMongo" ng-controller="MongoRestController">
+      <form class="form-inline text-center bbbbbb">
+        <div class="form-group">
+          <label class="sr-only" for="searchVideoInput">Search Videos Here</label>
+          <input ng-model="searchSting" type="search" class="form-control" id="searchVideoInput" placeholder="Search Videos Here">
+        </div>
+        <button type="submit" class="btn btn-default" ng-click="getVideos()">Search</button>
+      </form>
+
+      <div class="outerContainer">
+        <h4 class="text-center"> <b>{{savedVideos.length}} Saved Videos</b></h4>
+        <div ng-repeat="savedVideo in savedVideos" class="savedRecords">
+          <div class="container">
+            <b>Video Id:</b> <span class="description">{{savedVideo['videoId']}}</span> <input ng-show={{savedVideo['editing']}} value={{savedVideo['videoId']}}></br>
+            <b>Video Title:</b> <span ng-hide="currentEditContext != null" class="description">{{savedVideo['title']}}</span> <input ng-model="currentEditContext['title']" ng-show="currentEditContext != null"></br>
+            <b>Video URL:</b> <span ng-hide="currentEditContext != null" class="description">{{savedVideo['videoLaunchUrl']}}</span> <input ng-model="currentEditContext['videoLaunchUrl']" ng-show="currentEditContext != null"></br>
+            <b>Channel Title:</b> <span ng-hide="currentEditContext != null" class="description">{{savedVideo['channelTitle']}}</span> <input ng-model="currentEditContext['channelTitle']" ng-show="currentEditContext != null"></br>
+            <button ng-hide="currentEditContext != null" class="btn btn-primary" ng-click="editData($index)">Edit Details</button> <button ng-hide="currentEditContext != null" class="btn btn-danger" ng-click="deleteData($index)">Delete Record</button>
+            <button ng-show="currentEditContext != null" class="btn btn-success" ng-click="updateData()">Confirm Update</button> <button ng-show="currentEditContext != null" class="btn btn-primary" ng-click="cancelEdit($index)">Cancel</button>
+          </div>
+        </div>
+    </div>
+
+    <h4 class="text-center" ng-show="videos.length>0"> <b>Search results for: {{searchSting}}</b></h4>
+      <div ng-repeat="video in videos" class="card">
+        <img src={{video['snippet']['thumbnails']['high']['url']}} alt={{video['snippet']['title']}} />
+        <div class="container">
+          <h4 class="videoDescription"><b>{{video['snippet']['title']}}</b></h4>
+          <a src={{video['videoLaunchUrl']}} class="videoDescription">Link</a>
+          <p class="videoDescription">{{video['snippet']['description']}}</p>
+          <button class="btn btn-primary" ng-click="insertData($index)">Save Video Details</button>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+</body>
+
+</html>
