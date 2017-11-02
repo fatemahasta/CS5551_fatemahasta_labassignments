@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.rohithkumar.androidwearapplication.MainActivity"
+    tools:deviceIds="wear_round">
+
+    <EditText
+        android:id="@+id/string"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter a text to search(Enter an entity as text)  "
+        android:inputType="textPersonName"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/search"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:onClick="searchText"
+        android:text="SEARCH"
+        android:layout_below="@+id/string"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:layout_below="@+id/search"
+        android:layout_alignParentStart="true" />
+
+    +980`q90
+</RelativeLayout>

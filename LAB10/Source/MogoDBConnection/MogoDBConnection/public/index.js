@@ -40,7 +40,7 @@ myapp.controller('MongoRestController',function($scope,$http) {
                 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
             }
         }
-        var req = $http.post('http://127.0.0.1:8081/video-details', dataParams);
+        var req = $http.post('/video-details', dataParams);
         req.success(function(data, status, headers, config) {
             $scope.message = data;
             console.log("inserted" + data);
@@ -72,7 +72,7 @@ myapp.controller('MongoRestController',function($scope,$http) {
                 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
             }
         }
-        var req = $http.put('http://127.0.0.1:8081/video-details/' + videoId, dataParams);
+        var req = $http.put('/video-details/' + videoId, dataParams);
         req.success(function (data, status, headers, config) {
             $scope.message = data;
             $scope.getAllData();
@@ -92,7 +92,7 @@ myapp.controller('MongoRestController',function($scope,$http) {
                 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
             }
         }
-        var req = $http.delete('http://127.0.0.1:8081/video-details/' + videoId);
+        var req = $http.delete('/video-details/' + videoId);
         req.success(function (data, status, headers, config) {
             $scope.message = data;
             console.log(data);
@@ -111,7 +111,7 @@ myapp.controller('MongoRestController',function($scope,$http) {
                 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
             }
         }
-        var req = $http.get('http://127.0.0.1:8081/video-details');
+        var req = $http.get('/video-details');
         req.success(function (data, status, headers, config) {
             $scope.savedVideos = data;
         });

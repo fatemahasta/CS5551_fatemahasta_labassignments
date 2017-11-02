@@ -8,11 +8,13 @@ var bodyParser = require("body-parser");
 var express = require('express');
 var cors = require('cors');
 var app = express();
+var path = require('path');
 var url = 'mongodb://root:root123@ds125255.mlab.com:25255/asedemo';
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/public', express.static(__dirname + '/public'));
 
 // receive request to insert data
 app.post('/video-details', function (req, res) {
@@ -147,9 +149,19 @@ var findDataFromDB = function (db, requestBody, successCallback, errorCallback) 
     });
 };
 
-var server = app.listen(8081,function () {
-    var host = server.address().address
-    var port = server.address().port
 
-    console.log("Example app listening at http://%s:%s", host, port)
+app.get('/', function (req, res) 
+{
+  res.sendFile(path.resolve('Home.html'));
 })
+
+app.listen(process.env.PORT || 5000, function() {
+	console.log('app running')
+})
+
+//var server = app.listen(process.env.PORT || 5000,function () {
+//    var host = server.address().address
+//    var port = server.address().port
+
+//    console.log("Example app listening at http://%s:%s", host, port)
+//})

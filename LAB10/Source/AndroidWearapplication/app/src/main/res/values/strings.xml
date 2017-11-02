@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AndroidWearapplication</string>
+    <string name="hello_round">Know Weather!</string>
+    <string name="hello_square">Hello Square World!</string>
+</resources>

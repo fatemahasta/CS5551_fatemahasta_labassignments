@@ -13,7 +13,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node MogoDBConnection/Node/mongo.js"
+    "start": "node mongo.js"
   },
   "author": "Fatema Hasta",
   "license": "ISC"
